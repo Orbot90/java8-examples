@@ -1,7 +1,9 @@
 package ru.orbot90.interfaces;
 
+import java.util.Objects;
+
 /**
- * Created by plevako on 10.06.2016.
+ * Простой функциональный интерфейс с одним абстрактным методом doStuff
  */
 @FunctionalInterface
 public interface CoolInterface {
@@ -9,6 +11,7 @@ public interface CoolInterface {
     void doStuff();
 
     default CoolInterface doMoreStuff(CoolInterface coolInterface) {
+        Objects.requireNonNull(coolInterface);
         return () -> {
             doStuff();
             coolInterface.doStuff();
