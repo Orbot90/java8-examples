@@ -27,12 +27,12 @@ public class CompletableFutureApp {
     }
 
     private static void completableFutureExample() {
-        CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(() -> {
+        CompletableFuture.supplyAsync(() -> {
             pause(10_000L);
             return "Some string";
-        });
-        completableFuture.thenApply(string -> string + " was modified")
+        }).thenApply(string -> string + " was modified")
                 .thenAccept(System.out::println);
+
 
         System.out.println("After completable future");
 
