@@ -21,7 +21,7 @@ public class LambdasApp {
 
     private static void consumerExample() {
         Consumer<String> consumer = System.out::println;
-        consumer.andThen(x -> System.out.println("After printing ha ha ha"));
+        consumer = consumer.andThen(x -> System.out.println("After printing " + x));
 
         consumer.accept("Ha ha ha");
     }
